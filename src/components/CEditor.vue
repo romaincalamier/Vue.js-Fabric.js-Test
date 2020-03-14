@@ -15,12 +15,12 @@ export default {
     CCanvas
   },
   data: () => ({
-      circlesNumber: 0
+    circlesNumber: 0
   }),
   methods: {
-      addCircle: function() {
-          this.circlesNumber += 1
-      }
+    addCircle: function () {
+      this.circlesNumber += 1
+    }
   }
 }
 </script>

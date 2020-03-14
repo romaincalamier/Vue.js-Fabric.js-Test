@@ -17,10 +17,24 @@ describe('CEditor.vue', () => {
                 circles: 3
             }
         })
-        const truc = wrapper.findAll('[data-test="fabricCircle"]')
-        expect(truc.at(0).exists()).toBe(true)
-        expect(truc.at(1).exists()).toBe(true)
-        expect(truc.at(2).exists()).toBe(true)
+        const wrapperCircleList = wrapper.findAll('[data-test="fabricCircle"]')
+        expect(wrapperCircleList.at(0).exists()).toBe(true)
+        expect(wrapperCircleList.at(1).exists()).toBe(true)
+        expect(wrapperCircleList.at(2).exists()).toBe(true)
       })
+  })
+  describe('when I click on a circle', () => {
+    it('should emit a selected circle event with the circle id', async () => {
+        const wrapper = shallowMount(CCanvas, {
+            propsData: {
+                circles: 2
+            }
+        })
+        const wrapperCircleList = wrapper.findAll('[data-test="fabricCircle"]')
+        const selectedCircleWrapper = wrapperCircleList.at(0)
+        selectedCircleWrapper.trigger('click')
+        await wrapper.vm.$nextTick()
+        expect(selectedCircleWrapper.emitted().selectedCircle[0]).toEqual(1)
+    })
   })
 })

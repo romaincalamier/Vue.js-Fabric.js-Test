@@ -1,5 +1,5 @@
 <template>
-    <fabric-canvas data-test='fabricCanvas'>
+    <fabric-canvas @mouse:down=selectedCircle() data-test='fabricCanvas'>
         <div v-for='circle in circles' :key=circle>
             <fabric-circle :id='circle' data-test='fabricCircle'></fabric-circle>
         </div>
@@ -17,8 +17,13 @@ export default {
   },
   props: {
     circles: {
-        type: Number,
-        default: 1
+      type: Number,
+      default: 1
+    }
+  },
+  methods: {
+    selectedCircle: function (circleId) {
+      this.$emit('selectedCircle', circleId)
     }
   }
 }</script>
