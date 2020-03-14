@@ -1,16 +1,16 @@
 <template>
   <div id='app'>
-    <c-canvas></c-canvas>
+    <c-editor></c-editor>
   </div>
 </template>
 
 <script>
-import CCanvas from './components/CCanvas'
+import CEditor from './components/CEditor'
 
 export default {
   name: 'App',
   components: {
-    CCanvas
+    CEditor
   }
 }
 </script>
