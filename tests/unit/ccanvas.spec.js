@@ -10,6 +10,10 @@ describe('CEditor.vue', () => {
     const wrapper = shallowMount(CCanvas)
     expect(wrapper.find('[data-test="fabricCircle"]').exists()).toBe(true)
   })
+  it('should display one fabric rectangle by default', () => {
+    const wrapper = shallowMount(CCanvas)
+    expect(wrapper.find('[data-test="fabricRectangle"]').exists()).toBe(true)
+  })
   describe('when circles is set to 3', () => {
       it('should display 3 circle', () => {
         const wrapper = shallowMount(CCanvas, {
@@ -23,7 +27,20 @@ describe('CEditor.vue', () => {
         expect(wrapperCircleList.at(2).exists()).toBe(true)
       })
   })
-  describe('when I click on a circle', () => {
+  describe('when rectangles is set to 3', () => {
+      it('should display 3 rectangles', () => {
+        const wrapper = shallowMount(CCanvas, {
+            propsData: {
+                rectangles: 3
+            }
+        })
+        const wrapperRectangleList = wrapper.findAll('[data-test="fabricRectangle"]')
+        expect(wrapperRectangleList.at(0).exists()).toBe(true)
+        expect(wrapperRectangleList.at(1).exists()).toBe(true)
+        expect(wrapperRectangleList.at(2).exists()).toBe(true)
+      })
+  })
+  describe.skip('when I click on a circle', () => {
     it('should emit a selected circle event with the circle id', async () => {
         const wrapper = shallowMount(CCanvas, {
             propsData: {

@@ -5,7 +5,7 @@ describe('CEditor.vue', () => {
   it('should display a title with the right text', () => {
     const wrapper = shallowMount(CEditor)
     expect(wrapper.find('[data-test="title"]').exists()).toBe(true)
-    expect(wrapper.find('[data-test="title"]').text()).toBe('My awesome Editor')
+    expect(wrapper.find('[data-test="title"]').text()).toBe('My Editor')
   })
   it('should display a canvas', () => {
       const wrapper = shallowMount(CEditor)
@@ -24,6 +24,21 @@ describe('CEditor.vue', () => {
         circleButton.trigger('click')
         circleButton.trigger('click')
         expect(wrapper.vm.circlesNumber).toEqual(2)
+      })
+  })
+  it('should display the add rectangle button', () => {
+    const wrapper = shallowMount(CEditor)
+    expect(wrapper.find('[data-test="rectangle-button"]').exists()).toBe(true)
+    expect(wrapper.find('[data-test="rectangle-button"]').text()).toBe('Add rectangle')
+  })
+  describe('when I click on the add rectangle button', () => {
+      it('should increase rectanglesNumber', () => {
+        const wrapper = shallowMount(CEditor)
+        expect(wrapper.vm.rectanglesNumber).toEqual(0)
+        const rectangleButton = wrapper.find('[data-test="rectangle-button"]')
+        rectangleButton.trigger('click')
+        rectangleButton.trigger('click')
+        expect(wrapper.vm.rectanglesNumber).toEqual(2)
       })
   })
 })
