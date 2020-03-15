@@ -1,4 +1,13 @@
-# test2
+# Vue.js-Fabric.js-Test
+
+## Description
+
+Project started with `@vue/cli`. Testing with vue-test-utils and Jest.
+In order to use [fabric](http://fabricjs.com/) with vue I choose to use the [vue-fabric-wrapper](https://github.com/bensladden/vue-fabric-wrapper)
+
+For now I did not manage to get an event to identitfy the fabric object selected by the user so I can't `remove`, `bring to front` or `bring to back`.
+
+Next step is to add `undo` / `redo` buttons
 
 ## Project setup
 ```
@@ -19,11 +28,3 @@ npm run build
 ```
 npm run test:unit
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
